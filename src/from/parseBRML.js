@@ -3,7 +3,10 @@ import parser from 'fast-xml-parser';
 import JSZip from 'jszip/dist/jszip.min.js';
 
 /**
- * @param  {} file with the raw measurement data
+ * Parse metadata from xml file that is contained in BRML
+ * @export
+ * @param {String} file
+ * @returns {Object} containing data (x: 2theta, y: counts), info and metadata
  */
 export function parseDiffractogram(file) {
   let json = parser.parse(file, {
@@ -91,8 +94,13 @@ function getXYDiffractogram(data) {
 
   return diffractogram;
 }
-
-export async function readBRML(binary, options = {}) {
+/**
+ * Read a BRML file (produced by Bruker instruments, a zip file that contains XMLs)
+ * @export
+ * @param {String/Array of bytes/ArrayBuffer/Uint8Array/Buffer/Blob/Promise} binary BRML file
+ * @returns {Object} containing data (x: 2theta, y: counts), info and metadata
+ */
+export async function readBRML(binary) {
   let zip = new JSZip();
   const txt = await zip.loadAsync(binary).then(function (zipFiles) {
     return zipFiles.file('Experiment0/RawData0.xml').async('text');

@@ -2,8 +2,14 @@ function trimReplace(s) {
   let tmp = s.split(':');
   return tmp[1].replace('"', '').replace("'", '').trim();
 }
-// eslint-disable-next-line no-unused-vars
-export function parseXY(file, options = {}) {
+
+/**
+ * Parse diffractograms saved in xy files that are generated with PowDLL
+ * @export
+ * @param {String} file
+ * @returns {Object} containing data (x: 2theta, y: counts), info and metadata
+ */
+export function parseXY(file) {
   let lines = file.split('\n').filter((line) => !line.match(/^\s*$/));
   const header = lines[0];
   lines.splice(0, 1); // header line
