@@ -1,6 +1,6 @@
-import { readBRML } from 'xrd';
-
 import { Analysis } from '..';
+
+import { readBRML } from './parseBRML';
 
 /**
  * Creates a new Chromatogram element based in a JCAMP string
