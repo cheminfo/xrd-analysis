@@ -22,7 +22,8 @@ describe('parseBRML', () => {
     expect(result.meta.userName).toBe('EPFL LMER SION');
     expect(result.meta).toHaveProperty('axes');
     expect(result.meta.axes).toHaveLength(2);
-    expect(Object.keys(result.meta)).toHaveLength(15);
+    expect(Object.keys(result.meta)).toHaveLength(19);
+    expect(result.meta.anode).toBe('Cu');
     expect(result.data.x).toHaveLength(3714);
     expect(result.data.y).toHaveLength(3714);
     expect(result.data.x.slice(0, 3)).toStrictEqual([2, 2.0102, 2.0205]);
@@ -46,7 +47,7 @@ describe('readBRML', () => {
     expect(result.info.origin).toBe(
       'Data converted from BRML using convert-to-jcamp',
     );
-    expect(Object.keys(result.meta)).toHaveLength(15);
+    expect(Object.keys(result.meta)).toHaveLength(19);
     expect(result.data.x).toHaveLength(2443);
     expect(result.data.y).toHaveLength(2443);
   });

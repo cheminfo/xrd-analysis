@@ -44,6 +44,19 @@ export function parseDiffractogram(file) {
     guid: data.Identifier.Guid,
     axes: axes,
     goniometerType: data.FixedInformation.Instrument.GoniometerType,
+
+    anode:
+      data.FixedInformation.Instrument.PrimaryTracks.TrackInfoData.MountedOptics
+        .InfoData[0].Tube.TubeMaterial,
+    anodeVoltage:
+      data.FixedInformation.Instrument.PrimaryTracks.TrackInfoData.MountedOptics
+        .InfoData[0].Tube.Generator.Voltage.__Value,
+    anodeVoltageUnit:
+      data.FixedInformation.Instrument.PrimaryTracks.TrackInfoData.MountedOptics
+        .InfoData[0].Tube.Generator.Voltage.__Unit,
+    anodeSerialNumber:
+      data.FixedInformation.Instrument.PrimaryTracks.TrackInfoData.MountedOptics
+        .InfoData[0].Tube.SerialNumber.__Value,
   };
 
   const diffractogram = getXYDiffractogram(data.DataRoutes.DataRoute.Datum);
