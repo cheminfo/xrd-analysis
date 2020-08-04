@@ -163,7 +163,7 @@ test('autoPeakPicking', () => {
     },
   );
 
-  let spectrum = analysis.getSpectrum();
+  let spectrum = analysis.getXYSpectrum();
   autoPeakPicking(spectrum);
   expect(spectrum.peaks).toHaveLength(3);
 });

@@ -11,7 +11,7 @@ describe('fromXY', () => {
 
   it('check the dictionary', () => {
     const analysis = fromPowDLLXY(xy);
-    let diffractogram = analysis.getSpectrum();
+    let diffractogram = analysis.getXYSpectrum();
     expect(diffractogram.meta.userName).toBe('Lab Manager');
     expect(diffractogram.variables.x.data[0]).toStrictEqual(10);
     expect(diffractogram.variables.y.data[1]).toStrictEqual(

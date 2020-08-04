@@ -163,7 +163,7 @@ test('addPeak', () => {
     },
   );
 
-  let spectrum = analysis.getSpectrum();
+  let spectrum = analysis.getXYSpectrum();
   const peak = {
     x: 5,
     y: 10,

@@ -9,7 +9,7 @@ test('xrdAnalysis', async () => {
 
   let jcamp = toJcamp(analysis);
 
-  let newAnalysis = fromJcamp(jcamp).getSpectrum();
+  let newAnalysis = fromJcamp(jcamp).getXYSpectrum();
 
   expect(newAnalysis.variables.x.data).toHaveLength(2443);
   expect(newAnalysis.variables.y.data).toHaveLength(2443);

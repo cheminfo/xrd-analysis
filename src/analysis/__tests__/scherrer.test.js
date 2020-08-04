@@ -171,7 +171,7 @@ test('scherrerForSpectrum', () => {
     },
   );
 
-  let spectrum = analysis.getSpectrum();
+  let spectrum = analysis.getXYSpectrum();
   spectrum.peaks = [{ x: 23.3, y: 10, fwhm: 0.3 }];
 
   const broadenings = scherrerForSpectrum(spectrum);
