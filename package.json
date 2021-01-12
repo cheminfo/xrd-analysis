@@ -54,7 +54,6 @@
   "dependencies": {
     "common-spectrum": "^0.16.0",
     "fast-xml-parser": "^3.17.6",
-    "jszip": "^3.5.0",
-    "ml-gsd": "^6.4.0"
+    "jszip": "^3.5.0"
   }
 }
