@@ -1,5 +1,4 @@
-import { kAlpha1Angstrom } from '../constants/wavelengths';
-
+import { toRadians, getLamba } from './utils';
 /* eslint-disable no-empty-function */
 /**
  * Calculate the crystallite size according to the Scherrer equation.
@@ -18,9 +17,6 @@ export function scherrer(k, lambda, beta, theta) {
   return (k * lambda) / (toRadians(beta) * Math.cos(toRadians(theta)));
 }
 
-function toRadians(angle) {
-  return angle * (Math.PI / 180);
-}
 /**
  * Computes the broadening accoding to the Scherrer equation for every reflex
  * in the diffractogram. Uses the anode metal deposited in the metadata to
@@ -41,19 +37,10 @@ export function scherrerForSpectrum(spectrum, k = 0.94) {
     );
   }
 
-  let anodeMetal = spectrum.meta.anode.toLowerCase();
-  if (!(anodeMetal in kAlpha1Angstrom)) {
-    throw new Error(
-      'The wavelength for the anode metal in the metadata is not defined',
-    );
-  }
-
-  const lambda = kAlpha1Angstrom[anodeMetal];
-
+  const lambda = getLamba(spectrum.meta.anode);
   let broadenings = [];
 
   for (let peak of spectrum.peaks) {
-    // ToDo: the fact that we assume two theta and that fwhm is defined is not so since
     broadenings.push({
       x: peak.x,
       crystalliteSize: scherrer(k, lambda, peak.fwhm, peak.x / 2) / 100,

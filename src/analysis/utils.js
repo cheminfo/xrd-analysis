@@ -1,21 +1,15 @@
-export function getPFandFWHMScaling(profileFunc) {
-  let pf = profileFunc.toLowerCase();
-  let fwhmScaling = Math.sqrt(3);
-  switch (pf) {
-    case 'lorentzian':
-      break;
-    case 'gaussian':
-      fwhmScaling = Math.sqrt(2);
-      break;
-    default:
-      pf = 'lorentzian';
-  }
+import { kAlpha1Angstrom } from '../constants/wavelengths';
 
-  return [pf, fwhmScaling];
+export function toRadians(angle) {
+  return angle * (Math.PI / 180);
 }
 
-export function addPeaksKey(spectrum) {
-  if (!('peaks' in spectrum)) {
-    spectrum.peaks = [];
+export function getLamba(anode) {
+  if (!(anode in kAlpha1Angstrom)) {
+    throw new Error(
+      'The wavelength for the anode metal in the metadata is not defined',
+    );
   }
+
+  return kAlpha1Angstrom[anode];
 }

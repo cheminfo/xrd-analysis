@@ -166,7 +166,7 @@ test('scherrerForSpectrum', () => {
       title: 'My testpattern',
       dataType: 'XRD',
       meta: {
-        anode: 'Cu',
+        anode: 'CuKa',
       },
     },
   );
@@ -176,7 +176,7 @@ test('scherrerForSpectrum', () => {
 
   const broadenings = scherrerForSpectrum(spectrum);
   expect(broadenings).toHaveLength(1);
-  expect(broadenings[0].crystalliteSize).toStrictEqual(2.8239648702184876);
+  expect(broadenings[0].crystalliteSize).toBeCloseTo(2.82623, 2);
   spectrum.peaks.push({ x: 13.3, y: 10, fwhm: 0.2 });
 
   const broadenings2 = scherrerForSpectrum(spectrum);
