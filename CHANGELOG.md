@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://www.github.com/cheminfo/xrd-analysis/compare/v0.5.0...v0.6.0) (2021-02-09)
+
+
+### Features
+
+* added reverse transformation ([060371c](https://www.github.com/cheminfo/xrd-analysis/commit/060371cb8890f5c5213ed074cb6df33dbb5c8986))
+
 ## [0.5.0](https://www.github.com/cheminfo/xrd-analysis/compare/v0.4.0...v0.5.0) (2021-02-09)
 
 
