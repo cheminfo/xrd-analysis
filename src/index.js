@@ -10,5 +10,8 @@ export { fromBRML } from './from/fromBRML';
 export { fromPowDLLXY } from './from/fromPowDLLXY';
 export { kAlpha1Angstrom } from './constants/wavelengths';
 
-export { calculateInterplanarSpacing } from './analysis/convert';
+export {
+  calculateInterplanarSpacing,
+  calculateReflexes,
+} from './analysis/convert';
 export { scherrerForSpectrum } from './analysis/scherrer';

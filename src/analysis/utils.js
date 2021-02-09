@@ -4,6 +4,10 @@ export function toRadians(angle) {
   return angle * (Math.PI / 180);
 }
 
+export function toDegrees(radians) {
+  return (radians * 180) / Math.PI;
+}
+
 export function getLamba(anode) {
   if (!(anode in kAlpha1Angstrom)) {
     throw new Error(
