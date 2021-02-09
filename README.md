@@ -4,7 +4,7 @@
 [![build status][ci-image]][ci-url]
 [![npm download][download-image]][download-url]
 
-.
+Parser Bruker and PowDLL PXRD files.
 
 ## Installation
 
@@ -13,10 +13,9 @@
 ## Usage
 
 ```js
-import library from 'xrd-analysis';
+import { fromBRML } from 'xrd-analysis';
 
-const result = library(args);
-// result is ...
+const pattern = fromBRML(brmlFile);
 ```
 
 ## [API Documentation](https://cheminfo.github.io/xrd-analysis/)
