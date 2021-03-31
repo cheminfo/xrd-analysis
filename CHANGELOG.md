@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://www.github.com/cheminfo/xrd-analysis/compare/v0.6.0...v0.7.0) (2021-03-31)
+
+
+### Features
+
+* update dependencies allowing baseline ([af054f2](https://www.github.com/cheminfo/xrd-analysis/commit/af054f210904cf2a14b43b2ad0402bf0bcc114ef))
+
 ## [0.6.0](https://www.github.com/cheminfo/xrd-analysis/compare/v0.5.0...v0.6.0) (2021-02-09)
 
 
