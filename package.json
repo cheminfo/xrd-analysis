@@ -68,7 +68,7 @@
       "iupac": "https://doi.org/10.1351/goldbook.D01712"
     },
     "functionality": {
-      "fileTypes:": [
+      "fileTypes": [
         {
           "extension": "brml",
           "manufacturer": "Bruker",
