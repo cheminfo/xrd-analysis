@@ -15,18 +15,19 @@ export function parseDiffractogram(file) {
   });
   const data = json.RawData;
 
-  let axes = data.DataRoutes.DataRoute.ScanInformation.ScanAxes.ScanAxisInfo.map(
-    (element) => ({
-      id: element.__AxisId,
-      name: element.__AxisName,
-      unitBase: element.Unit.__Base,
-      unitPrefix: element.Unit.__Prefix,
-      reference: element.reference,
-      start: element.start,
-      stop: element.stop,
-      increment: element.increment,
-    }),
-  );
+  let axes =
+    data.DataRoutes.DataRoute.ScanInformation.ScanAxes.ScanAxisInfo.map(
+      (element) => ({
+        id: element.__AxisId,
+        name: element.__AxisName,
+        unitBase: element.Unit.__Base,
+        unitPrefix: element.Unit.__Prefix,
+        reference: element.reference,
+        start: element.start,
+        stop: element.stop,
+        increment: element.increment,
+      }),
+    );
 
   let adddata = {
     startTime: data.TimeStampStarted,
