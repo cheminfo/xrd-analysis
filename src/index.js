@@ -4,6 +4,8 @@ export {
   fromJcamp,
   toJcamp,
   JSGraph,
+  peakPicking,
+  autoPeakPicking,
 } from 'common-spectrum';
 
 export { fromBRML } from './from/fromBRML';
