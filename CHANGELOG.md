@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.8.0](https://www.github.com/cheminfo/xrd-analysis/compare/v0.7.0...v0.8.0) (2021-05-11)
+
+
+### Features
+
+* add peak picking ([c14476c](https://www.github.com/cheminfo/xrd-analysis/commit/c14476cda9ab9a771e7a92a77fcadb1142b18c17))
+* adding cheminfo metadata ([c36e60e](https://www.github.com/cheminfo/xrd-analysis/commit/c36e60e8671ddd152c985e3f3f647738bae99f21))
+
+
+### Bug Fixes
+
+* rename cheminfo meta key to info ([8e5f120](https://www.github.com/cheminfo/xrd-analysis/commit/8e5f120793830dcabf6657b24f436118952fbf09))
+* typo in package.json metadata ([867e183](https://www.github.com/cheminfo/xrd-analysis/commit/867e1837edaeede38df9b64369197390c8c8b5e2))
+
 ## [0.7.0](https://www.github.com/cheminfo/xrd-analysis/compare/v0.6.0...v0.7.0) (2021-03-31)
 
 
