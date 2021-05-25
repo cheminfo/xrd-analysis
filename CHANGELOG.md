@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.9.2](https://www.github.com/cheminfo/xrd-analysis/compare/v0.9.1...v0.9.2) (2021-05-25)
+
+
+### Bug Fixes
+
+* correctly pass height to peak shape generator ([4248979](https://www.github.com/cheminfo/xrd-analysis/commit/42489797994b7efdfa69bf8411cb506bd96f748b))
+
 ### [0.9.1](https://www.github.com/cheminfo/xrd-analysis/compare/v0.9.0...v0.9.1) (2021-05-25)
 
 
