@@ -11,7 +11,7 @@ export function computeCrystallinity(spectrum, options = {}) {
   let peakArea = 0;
 
   spectrum.peaks.forEach((peak) => {
-    peakArea += getShapeGenerator(shape.kind, {fwhm: peak.width, heigh: peak.y}).getArea();
+    peakArea += getShapeGenerator(shape.kind, {fwhm: peak.width, height: peak.y}).getArea();
   });
 
   return peakArea / totalArea;
