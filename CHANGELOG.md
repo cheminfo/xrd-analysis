@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.9.1](https://www.github.com/cheminfo/xrd-analysis/compare/v0.9.0...v0.9.1) (2021-05-25)
+
+
+### Bug Fixes
+
+* scherrer should return an array of peaks ([6304f20](https://www.github.com/cheminfo/xrd-analysis/commit/6304f2089e2974b0019661eb67ee8641403fe1b1))
+
 ## [0.9.0](https://www.github.com/cheminfo/xrd-analysis/compare/v0.8.0...v0.9.0) (2021-05-25)
 
 
