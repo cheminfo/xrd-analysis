@@ -18,3 +18,4 @@ export {
 } from './analysis/convert';
 export { scherrerForSpectrum } from './analysis/scherrerForSpectrum';
 export { computeCrystallinity } from './analysis/computeCrystallinity';
+export { generatePattern } from './analysis/generatePattern';
