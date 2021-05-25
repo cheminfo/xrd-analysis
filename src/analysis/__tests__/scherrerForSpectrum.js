@@ -1,4 +1,4 @@
-import { scherrer, scherrerForSpectrum } from '../scherrer';
+import { scherrer, scherrerForSpectrum } from '../scherrerForSpectrum';
 
 import { dummyAnalysis } from './utils.js';
 

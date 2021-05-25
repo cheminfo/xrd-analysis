@@ -16,4 +16,5 @@ export {
   calculateInterplanarSpacing,
   calculateReflexes,
 } from './analysis/convert';
-export { scherrerForSpectrum } from './analysis/scherrer';
+export { scherrerForSpectrum } from './analysis/scherrerForSpectrum';
+export { computeCrystallinity } from './analysis/computeCrystallinity';

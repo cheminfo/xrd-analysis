@@ -24,9 +24,10 @@ export function scherrer(k, lambda, beta, theta) {
  * @export
  * @param {*} spectrum -with anode metal as metadata and picked peaks with FWHM, all in 2 theta units
  * @param {Number} k shape factor
- * @returns {Array} broadings - array of objects with x in 2 theta and crystallite sizes in nm
+ * @returns {Array<Object>} peaks with crystalliteSize attribute
  */
 export function scherrerForSpectrum(spectrum, k = 0.94) {
+  let newPeaks = spectrum.peaks;
   if (!('peaks' in spectrum)) {
     throw new Error('There must be peaks to calculate the scherrer broadening');
   }
@@ -38,14 +39,10 @@ export function scherrerForSpectrum(spectrum, k = 0.94) {
   }
 
   const lambda = getLamba(spectrum.meta.anode);
-  let broadenings = [];
 
-  for (let peak of spectrum.peaks) {
-    broadenings.push({
-      x: peak.x,
-      crystalliteSize: scherrer(k, lambda, peak.width, peak.x / 2) / 100,
-    }); // divide by 100 to convert A to nm
+  for (let peak of newPeaks) {
+    peak.crystalliteSize = scherrer(k, lambda, peak.width, peak.x / 2) / 100;
   }
 
-  return broadenings;
+  return newPeaks;
 }
