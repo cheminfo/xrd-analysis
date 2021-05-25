@@ -43,7 +43,7 @@ export function scherrerForSpectrum(spectrum, k = 0.94) {
   for (let peak of spectrum.peaks) {
     broadenings.push({
       x: peak.x,
-      crystalliteSize: scherrer(k, lambda, peak.fwhm, peak.x / 2) / 100,
+      crystalliteSize: scherrer(k, lambda, peak.width, peak.x / 2) / 100,
     }); // divide by 100 to convert A to nm
   }
 
