@@ -4,7 +4,8 @@
 [![build status][ci-image]][ci-url]
 [![npm download][download-image]][download-url]
 
-Parser Bruker and PowDLL PXRD files.
+Parse Bruker and PowDLL PXRD files. 
+Perform basic analysis such as computing the crystallinity or crystallite width.
 
 ## Installation
 
