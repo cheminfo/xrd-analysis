@@ -1,6 +1,6 @@
 {
   "name": "xrd-analysis",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "xrd-analysis can convert output files from powder-xray diffraction into JCAMP-DX format and perform analysis (Scherrer equation, ...) on the diffractograms",
   "main": "lib/index.js",
   "module": "src/index.js",
@@ -30,8 +30,8 @@
   "homepage": "https://github.com/cheminfo/xrd-analysis#readme",
   "jest": {
     "testEnvironment": "node",
-    "testPathIgnorePatterns" : [
-      "src/analysis/__tests__/utils" 
+    "testPathIgnorePatterns": [
+      "src/analysis/__tests__/utils"
     ]
   },
   "prettier": {
