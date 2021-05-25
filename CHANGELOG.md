@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.0](https://www.github.com/cheminfo/xrd-analysis/compare/v0.8.0...v0.9.0) (2021-05-25)
+
+
+### Features
+
+* compute crystallinity based on peak and area under curve ([7bf4f35](https://www.github.com/cheminfo/xrd-analysis/commit/7bf4f35e6719d667a31f10aa26df12655814a079))
+
 ## [0.8.0](https://www.github.com/cheminfo/xrd-analysis/compare/v0.7.0...v0.8.0) (2021-05-11)
 
 
