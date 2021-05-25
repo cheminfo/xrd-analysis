@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.0](https://www.github.com/cheminfo/xrd-analysis/compare/v0.9.2...v0.10.0) (2021-05-25)
+
+
+### Features
+
+* generate pattern ([74696dd](https://www.github.com/cheminfo/xrd-analysis/commit/74696dd861e2c9e87e08693a9499d2673f5f84f4))
+
 ### [0.9.2](https://www.github.com/cheminfo/xrd-analysis/compare/v0.9.1...v0.9.2) (2021-05-25)
 
 
