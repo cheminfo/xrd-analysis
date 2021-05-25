@@ -29,7 +29,10 @@
   },
   "homepage": "https://github.com/cheminfo/xrd-analysis#readme",
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "testPathIgnorePatterns" : [
+      "src/analysis/__tests__/utils" 
+    ]
   },
   "prettier": {
     "arrowParens": "always",
@@ -42,19 +45,21 @@
     "@babel/plugin-transform-modules-commonjs": "^7.14.0",
     "@types/jest": "^26.0.23",
     "cheminfo-build": "^1.1.10",
-    "eslint": "^7.26.0",
+    "eslint": "^7.27.0",
     "eslint-config-cheminfo": "^5.2.4",
-    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-import": "^2.23.3",
     "eslint-plugin-jest": "^24.3.6",
     "eslint-plugin-prettier": "^3.4.0",
-    "jest": "^26.6.3",
+    "jest": "^27.0.1",
     "prettier": "^2.3.0",
-    "rollup": "^2.47.0"
+    "rollup": "^2.50.0"
   },
   "dependencies": {
-    "common-spectrum": "^0.34.0",
+    "common-spectrum": "^0.35.0",
     "fast-xml-parser": "^3.19.0",
-    "jszip": "^3.6.0"
+    "jszip": "^3.6.0",
+    "ml-peak-shape-generator": "^1.0.0",
+    "ml-spectra-processing": "^6.6.0"
   },
   "info": {
     "logo": "https://raw.githubusercontent.com/cheminfo/font/master/src/misc/cristal.svg",
