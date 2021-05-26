@@ -1,9 +1,12 @@
+import { JSGraph as OriginalJSGraph } from 'common-spectrum';
+
+import { getAnnotations } from './jsgraph/getAnnotations';
+
 export {
   Analysis,
   AnalysesManager,
   fromJcamp,
   toJcamp,
-  JSGraph,
   peakPicking,
   autoPeakPicking,
 } from 'common-spectrum';
@@ -19,3 +22,5 @@ export {
 export { scherrerForSpectrum } from './analysis/scherrerForSpectrum';
 export { computeCrystallinity } from './analysis/computeCrystallinity';
 export { generatePattern } from './analysis/generatePattern';
+
+export const JSGraph = { ...OriginalJSGraph, getAnnotations };

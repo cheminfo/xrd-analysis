@@ -1,6 +1,6 @@
-export function getAnnotations(spectrum, options = {}) {
+export function getAnnotations(peaks, options = {}) {
   const { fillColor = 'green', strokeColor = 'red', creationFct } = options;
-  const peaks = spectrum.peaks;
+
   if (!peaks) return [];
   let annotations = peaks.map((peak) => {
     let annotation = {

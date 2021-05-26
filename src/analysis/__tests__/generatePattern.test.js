@@ -14,4 +14,5 @@ test('generate pattern', () => {
   expect(pattern).toHaveProperty('x');
   expect(pattern.x).toHaveLength(999);
   expect(Math.min(...pattern.x)).toStrictEqual(10);
+  expect(pattern.y).toHaveLength(999);
 });
