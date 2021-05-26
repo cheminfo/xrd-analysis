@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.10.1](https://www.github.com/cheminfo/xrd-analysis/compare/v0.10.0...v0.10.1) (2021-05-26)
+
+
+### Bug Fixes
+
+* export getAnnotations ([09f33eb](https://www.github.com/cheminfo/xrd-analysis/commit/09f33eb8fb8aa58014309600d7b1d75fb29e5968))
+
 ## [0.10.0](https://www.github.com/cheminfo/xrd-analysis/compare/v0.9.2...v0.10.0) (2021-05-25)
 
 
