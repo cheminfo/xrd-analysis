@@ -14,5 +14,5 @@ test('fromBRML', async () => {
   expect(spectrum.variables.x.label).toStrictEqual('2ϴ [°]');
   expect(spectrum.variables.x.units).toStrictEqual('°');
   expect(spectrum.variables.y.label).toStrictEqual('counts');
-  expect(spectrum.variables.y.units).toStrictEqual('counts');
+  expect(spectrum.variables.y.units).toBeUndefined();
 });
