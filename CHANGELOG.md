@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.10.2](https://www.github.com/cheminfo/xrd-analysis/compare/v0.10.1...v0.10.2) (2021-08-03)
+
+
+### Bug Fixes
+
+* failing test ([14e3247](https://www.github.com/cheminfo/xrd-analysis/commit/14e32471b53b3c93f69a86438f873d9534ed53fe))
+
 ### [0.10.1](https://www.github.com/cheminfo/xrd-analysis/compare/v0.10.0...v0.10.1) (2021-05-26)
 
 
