@@ -58,9 +58,9 @@
     "common-spectrum": "^0.40.0",
     "fast-xml-parser": "^3.19.0",
     "jszip": "^3.7.0",
-    "ml-peak-shape-generator": "^1.0.0",
+    "ml-peak-shape-generator": "^2.0.1",
     "ml-spectra-processing": "^6.8.0",
-    "spectrum-generator": "^4.7.1"
+    "spectrum-generator": "^5.0.0"
   },
   "info": {
     "logo": "https://raw.githubusercontent.com/cheminfo/font/master/src/misc/cristal.svg",
