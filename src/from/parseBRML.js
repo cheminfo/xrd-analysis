@@ -116,7 +116,7 @@ function getXYDiffractogram(data) {
  */
 export async function readBRML(binary) {
   let zip = new JSZip();
-  const txt = await zip.loadAsync(binary).then(function (zipFiles) {
+  const txt = await zip.loadAsync(binary).then((zipFiles) => {
     return zipFiles.file('Experiment0/RawData0.xml').async('text');
   });
 
