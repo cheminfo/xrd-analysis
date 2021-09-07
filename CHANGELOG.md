@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.10.3](https://www.github.com/cheminfo/xrd-analysis/compare/v0.10.2...v0.10.3) (2021-09-07)
+
+
+### Bug Fixes
+
+* broken peak-shape-generator import ([b1364ad](https://www.github.com/cheminfo/xrd-analysis/commit/b1364ad2b3015721ef3276d8e198b774cfabe659))
+
 ### [0.10.2](https://www.github.com/cheminfo/xrd-analysis/compare/v0.10.1...v0.10.2) (2021-08-03)
 
 
