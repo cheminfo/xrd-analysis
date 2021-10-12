@@ -14,7 +14,7 @@ test('xrdAnalysis', async () => {
   expect(newAnalysis.variables.x.data).toHaveLength(2443);
   expect(newAnalysis.variables.y.data).toHaveLength(2443);
   expect(newAnalysis.dataType).toBe('XRD pattern');
-  expect(newAnalysis.variables.x.label).toBe('2ϴ [°]');
-  expect(newAnalysis.variables.y.label).toBe('counts [undefined]');
+  expect(newAnalysis.variables.x.label).toBe('2ϴ');
+  expect(newAnalysis.variables.y.label).toBe('counts');
   expect(newAnalysis.meta.scanMode).toBe('PsdFastScan');
 });
