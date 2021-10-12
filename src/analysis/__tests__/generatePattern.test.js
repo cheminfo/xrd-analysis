@@ -13,6 +13,6 @@ test('generate pattern', () => {
   const pattern = generatePattern(spectrum);
   expect(pattern).toHaveProperty('x');
   expect(pattern.x).toHaveLength(999);
-  expect(Math.min(...pattern.x)).toStrictEqual(10);
+  expect(Math.min(...pattern.x)).toBe(10);
   expect(pattern.y).toHaveLength(999);
 });

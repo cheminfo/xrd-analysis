@@ -4,7 +4,7 @@ import { dummyAnalysis } from './utils.js';
 
 test('scherrerCrystalliteSize', () => {
   const crystalliteSize = scherrer(0.94, 1.54056, 0.3, 23.3 / 2);
-  expect(crystalliteSize).toStrictEqual(282.38915490482884);
+  expect(crystalliteSize).toBe(282.38915490482884);
 });
 
 test('scherrerForSpectrum', () => {

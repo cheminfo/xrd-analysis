@@ -11,8 +11,8 @@ test('fromBRML', async () => {
 
   expect(spectrum.variables.x.data).toHaveLength(2443);
   expect(spectrum.variables.y.data).toHaveLength(2443);
-  expect(spectrum.variables.x.label).toStrictEqual('2ϴ [°]');
-  expect(spectrum.variables.x.units).toStrictEqual('°');
-  expect(spectrum.variables.y.label).toStrictEqual('counts');
+  expect(spectrum.variables.x.label).toBe('2ϴ');
+  expect(spectrum.variables.x.units).toBe('°');
+  expect(spectrum.variables.y.label).toBe('counts');
   expect(spectrum.variables.y.units).toBeUndefined();
 });
