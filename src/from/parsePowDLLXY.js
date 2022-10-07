@@ -37,7 +37,7 @@ export function parsePowDLLXY(text) {
       dataType: 'XRD pattern',
       origin: 'Data converted from xy using convert-to-jcamp',
     },
-    meta: meta,
+    meta,
   };
 
   return diffractogram;
