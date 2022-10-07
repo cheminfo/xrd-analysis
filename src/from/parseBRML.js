@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import parser from 'fast-xml-parser';
+import { XMLParser } from 'fast-xml-parser';
 import JSZip from 'jszip/dist/jszip.min.js';
 
 /**
@@ -9,12 +8,14 @@ import JSZip from 'jszip/dist/jszip.min.js';
  * @returns {Object} containing data (x: 2theta, y: counts), info and metadata
  */
 export function parseDiffractogram(file) {
-  let json = parser.parse(file, {
+  const options = {
     ignoreAttributes: false,
     attributeNamePrefix: '__',
-  });
-  const data = json.RawData;
+  };
+  const parser = new XMLParser(options);
 
+  let json = parser.parse(file);
+  const data = json.RawData;
   let axes =
     data.DataRoutes.DataRoute.ScanInformation.ScanAxes.ScanAxisInfo.map(
       (element) => ({
@@ -43,7 +44,7 @@ export function parseDiffractogram(file) {
     userName: data.Identifier.__UserName,
     machineName: data.Identifier.__MachineName,
     guid: data.Identifier.Guid,
-    axes: axes,
+    axes,
     goniometerType: data.FixedInformation.Instrument.GoniometerType,
 
     anode:
@@ -100,14 +101,15 @@ function getXYDiffractogram(data) {
       origin: 'Data converted from BRML using convert-to-jcamp',
     },
     meta: {
-      axis2: axis2,
-      measuredTimePerStep: measuredTimePerStep,
-      plannedTimePerStep: plannedTimePerStep,
+      axis2,
+      measuredTimePerStep,
+      plannedTimePerStep,
     },
   };
 
   return diffractogram;
 }
+
 /**
  * Read a BRML file (produced by Bruker instruments, a zip file that contains XMLs)
  * @export
