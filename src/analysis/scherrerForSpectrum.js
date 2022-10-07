@@ -1,5 +1,4 @@
 import { toRadians, getLamba } from './utils';
-/* eslint-disable no-empty-function */
 /**
  * Calculate the crystallite size according to the Scherrer equation.
  * Please check the strong assumptions (e.g., grains smaller than 0.1 to 0.2 μm)

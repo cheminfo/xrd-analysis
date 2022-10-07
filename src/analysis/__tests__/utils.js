@@ -1,6 +1,6 @@
 import { Analysis } from '../..';
 
-export function dummyAnalysis(noiseLevel = 0.1, baseline=0) {
+export function dummyAnalysis(noiseLevel = 0.1, baseline = 0) {
   let analysis = new Analysis();
   let y = [
     0.0, 2.81944455e-1, -1.76789118e-1, -2.61612632e-1, -2.13420693e-1,
@@ -57,7 +57,6 @@ export function dummyAnalysis(noiseLevel = 0.1, baseline=0) {
       },
     },
   );
-
 
   return analysis;
 }
