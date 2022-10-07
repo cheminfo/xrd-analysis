@@ -20,3 +20,19 @@ test('scherrerForSpectrum', () => {
   const broadenings2 = scherrerForSpectrum(spectrum);
   expect(broadenings2).toHaveLength(2);
 });
+test('no peaks', () => {
+  let analysis = dummyAnalysis();
+  let spectrumNoPeaks = analysis.getXYSpectrum();
+  expect(() => scherrerForSpectrum(spectrumNoPeaks)).toThrow(
+    'There must be peaks to calculate the scherrer broadening',
+  );
+});
+test('no anode', () => {
+  let analysis = dummyAnalysis();
+  let spectrum = analysis.getXYSpectrum();
+  spectrum.peaks = [{ x: 23.3, y: 10, width: 0.3 }];
+  delete spectrum.meta.anode;
+  expect(() => scherrerForSpectrum(spectrum)).toThrow(
+    'The anode metal must be available in the metadata of the spectrum',
+  );
+});
