@@ -2,8 +2,7 @@ import { getShape1D } from 'ml-peak-shape-generator';
 import { xyIntegration } from 'ml-spectra-processing';
 
 export function computeCrystallinity(spectrum, options = {}) {
-  let { shape = { kind: 'gaussian' }} = options;
-
+  let { shape = { kind: 'gaussian' } } = options;
   const totalArea = xyIntegration({
     x: spectrum.variables.x.data,
     y: spectrum.variables.y.data,
@@ -11,7 +10,11 @@ export function computeCrystallinity(spectrum, options = {}) {
   let peakArea = 0;
 
   spectrum.peaks.forEach((peak) => {
-    peakArea += getShape1D(shape.kind, {fwhm: peak.width, height: peak.y}).getArea();
+    peakArea += getShape1D({
+      kind: shape.kind,
+      fwhm: peak.width,
+      height: peak.y,
+    }).getArea();
   });
 
   return peakArea / totalArea;
