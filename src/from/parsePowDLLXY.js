@@ -1,8 +1,8 @@
 /**
  * Parse diffractograms saved in xy files that are generated with PowDLL
  * @export
- * @param {String} [text] Text containing the data
- * @returns {Object} containing data (x: 2theta, y: counts), info and metadata
+ * @param {string} [text] - Text containing the data
+ * @returns {object} containing data (x: 2theta, y: counts), info and metadata
  */
 export function parsePowDLLXY(text) {
   let lines = text.split(/\r?\n/).filter((line) => !line.match(/^\s*$/));
@@ -14,8 +14,8 @@ export function parsePowDLLXY(text) {
   };
   for (const line of lines) {
     let tmp = line.split(/\s+/);
-    data.x.push(parseFloat(tmp[0].trim()));
-    data.y.push(parseFloat(tmp[1].trim()));
+    data.x.push(Number.parseFloat(tmp[0].trim()));
+    data.y.push(Number.parseFloat(tmp[1].trim()));
   }
   let headerLines = header.split('" ');
 
@@ -27,7 +27,7 @@ export function parsePowDLLXY(text) {
   meta.anode = trimReplace(headerLines[3]);
   meta.scanType = trimReplace(headerLines[4]);
   // eslint-disable-next-line radix
-  meta.timePerStep = parseInt(trimReplace(headerLines[5]));
+  meta.timePerStep = Number.parseInt(trimReplace(headerLines[5]));
 
   const diffractogram = {
     data: { x: data.x, y: data.y },

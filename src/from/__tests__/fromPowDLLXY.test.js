@@ -1,7 +1,7 @@
-import { readFileSync } from 'fs';
-import { join } from 'path';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 
-import { expect, describe, it } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
 import { fromPowDLLXY } from '../fromPowDLLXY';
 
@@ -14,6 +14,7 @@ describe('fromXY', () => {
   it('check the dictionary', () => {
     const analysis = fromPowDLLXY(xy);
     let diffractogram = analysis.getXYSpectrum();
+
     expect(diffractogram.meta.userName).toBe('Lab Manager');
     expect(diffractogram.variables.x.data[0]).toBe(10);
     expect(diffractogram.variables.y.data[1]).toBe(-0.0755227112146954);

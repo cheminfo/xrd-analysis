@@ -4,8 +4,8 @@ import JSZip from 'jszip/dist/jszip.min.js';
 /**
  * Parse metadata from xml file that is contained in BRML
  * @export
- * @param {String} file
- * @returns {Object} containing data (x: 2theta, y: counts), info and metadata
+ * @param {string} file
+ * @returns {object} containing data (x: 2theta, y: counts), info and metadata
  */
 export function parseDiffractogram(file) {
   const options = {
@@ -74,7 +74,7 @@ export function parseDiffractogram(file) {
 }
 
 /**
- * @param  {array} data array of strings of the measured points
+ * @param  {Array} data - array of strings of the measured points
  */
 function getXYDiffractogram(data) {
   let axis1 = [];
@@ -83,14 +83,14 @@ function getXYDiffractogram(data) {
   let plannedTimePerStep = [];
   let counts = [];
 
-  data.forEach((element) => {
+  for (const element of data) {
     const factors = element.split(',');
-    measuredTimePerStep.push(parseFloat(factors[0]));
-    plannedTimePerStep.push(parseFloat(factors[1]));
-    axis1.push(parseFloat(factors[2]));
-    axis2.push(parseFloat(factors[3]));
-    counts.push(parseFloat(factors[4]));
-  });
+    measuredTimePerStep.push(Number.parseFloat(factors[0]));
+    plannedTimePerStep.push(Number.parseFloat(factors[1]));
+    axis1.push(Number.parseFloat(factors[2]));
+    axis2.push(Number.parseFloat(factors[3]));
+    counts.push(Number.parseFloat(factors[4]));
+  }
 
   const diffractogram = {
     data: { x: axis1, y: counts },
@@ -113,8 +113,8 @@ function getXYDiffractogram(data) {
 /**
  * Read a BRML file (produced by Bruker instruments, a zip file that contains XMLs)
  * @export
- * @param {String/Array of bytes/ArrayBuffer/Uint8Array/Buffer/Blob/Promise} binary BRML file
- * @returns {Object} containing data (x: 2theta, y: counts), info and metadata
+ * @param {String/Array of bytes/ArrayBuffer/Uint8Array/Buffer/Blob/Promise} binary - BRML file
+ * @returns {object} containing data (x: 2theta, y: counts), info and metadata
  */
 export async function readBRML(binary) {
   let zip = new JSZip();

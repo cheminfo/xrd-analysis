@@ -1,4 +1,4 @@
-import { test, expect } from 'vitest';
+import { expect, test } from 'vitest';
 
 import { generatePattern } from '../generatePattern.js';
 
@@ -13,6 +13,7 @@ test('generate pattern', () => {
   ];
 
   const pattern = generatePattern(spectrum);
+
   expect(pattern).toHaveProperty('x');
   expect(pattern.x).toHaveLength(999);
   expect(Math.min(...pattern.x)).toBe(10);

@@ -9,13 +9,13 @@ export function computeCrystallinity(spectrum, options = {}) {
   });
   let peakArea = 0;
 
-  spectrum.peaks.forEach((peak) => {
+  for (const peak of spectrum.peaks) {
     peakArea += getShape1D({
       kind: shape.kind,
       fwhm: peak.width,
       height: peak.y,
     }).getArea();
-  });
+  }
 
   return peakArea / totalArea;
 }

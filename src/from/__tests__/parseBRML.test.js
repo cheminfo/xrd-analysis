@@ -1,7 +1,7 @@
-import { readFileSync } from 'fs';
-import { join } from 'path';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 
-import { expect, describe, it } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
 import { parseDiffractogram, readBRML } from '../parseBRML';
 
@@ -10,8 +10,10 @@ describe('parseBRML', () => {
     join(__dirname, '../../../testFiles/RawData0.xml'),
     'utf8',
   );
+
   it('check the dictionary', () => {
     let result = parseDiffractogram(xml);
+
     expect(result).toHaveProperty('data');
     expect(result.data).toHaveProperty('x');
     expect(result.data).toHaveProperty('y');
@@ -40,6 +42,7 @@ describe('readBRML', () => {
 
   it('check the output dictionary', async () => {
     let result = await readBRML(data);
+
     expect(result).toHaveProperty('data');
     expect(result.data).toHaveProperty('x');
     expect(result.data).toHaveProperty('y');

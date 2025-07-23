@@ -1,4 +1,4 @@
-import { toRadians, getLamba } from './utils';
+import { getLamba, toRadians } from './utils';
 /**
  * Calculate the crystallite size according to the Scherrer equation.
  * Please check the strong assumptions (e.g., grains smaller than 0.1 to 0.2 μm)
@@ -6,10 +6,10 @@ import { toRadians, getLamba } from './utils';
  * The Scherrer equation only provides a lower bound, there also might be instrument broadening
  * (http://prism.mit.edu/XRAY/oldsite/CrystalSizeAnalysis.pdf)
  * @export
- * @param {Number} k  shape factor. The shape factor has a typical value of about 0.9, but varies with the actual shape of the crystallite. For a discussion see J. Appl. Cryst. 11 (1978) p102-113
- * @param {Number} lambda X-ray wavelength (output will be of the same unit)
- * @param {Number} beta FWHM line broadening in degree
- * @param {Number} theta  Bragg angle in degree, i.e. theta and not 2 theta
+ * @param {number} k  - shape factor. The shape factor has a typical value of about 0.9, but varies with the actual shape of the crystallite. For a discussion see J. Appl. Cryst. 11 (1978) p102-113
+ * @param {number} lambda - X-ray wavelength (output will be of the same unit)
+ * @param {number} beta - FWHM line broadening in degree
+ * @param {number} theta  - Bragg angle in degree, i.e. theta and not 2 theta
  * @returns mean size of the ordered (crystalline) domains in the unit of lambda
  */
 export function scherrer(k, lambda, beta, theta) {
@@ -22,8 +22,8 @@ export function scherrer(k, lambda, beta, theta) {
  * get the wavelength and the peaks previosuly picked
  * @export
  * @param {*} spectrum -with anode metal as metadata and picked peaks with FWHM, all in 2 theta units
- * @param {Number} k shape factor
- * @returns {Array<Object>} peaks with crystalliteSize attribute
+ * @param {number} k - shape factor
+ * @returns {Array<object>} peaks with crystalliteSize attribute
  */
 export function scherrerForSpectrum(spectrum, k = 0.94) {
   let newPeaks = spectrum.peaks;

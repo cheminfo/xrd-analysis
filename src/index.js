@@ -3,12 +3,12 @@ import { JSGraph as OriginalJSGraph } from 'common-spectrum';
 import { getAnnotations } from './jsgraph/getAnnotations';
 
 export {
-  Analysis,
   AnalysesManager,
-  fromJcamp,
-  toJcamp,
-  peakPicking,
+  Analysis,
   autoPeakPicking,
+  fromJcamp,
+  peakPicking,
+  toJcamp,
 } from 'common-spectrum';
 
 export { fromBRML } from './from/fromBRML';

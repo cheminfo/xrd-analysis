@@ -1,7 +1,7 @@
-import { readFileSync } from 'fs';
-import { join } from 'path';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 
-import { expect, describe, it } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
 import { parsePowDLLXY } from '../parsePowDLLXY';
 
@@ -13,6 +13,7 @@ describe('parseXY', () => {
 
   it('check the dictionary', () => {
     const diffractogram = parsePowDLLXY(xy);
+
     expect(diffractogram.meta.userName).toBe('Lab Manager');
     expect(diffractogram.data.x[0]).toBe(10);
     expect(diffractogram.data.y[1]).toBe(-0.0755227112146954);
