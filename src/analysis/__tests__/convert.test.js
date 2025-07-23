@@ -1,3 +1,5 @@
+import { test, expect } from 'vitest';
+
 import { calculateInterplanarSpacing, calculateReflexes } from '../convert.js';
 
 test('interplanar spacing', () => {

@@ -1,6 +1,8 @@
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
+import { expect, describe, it } from 'vitest';
+
 import { fromPowDLLXY } from '../fromPowDLLXY';
 
 describe('fromXY', () => {

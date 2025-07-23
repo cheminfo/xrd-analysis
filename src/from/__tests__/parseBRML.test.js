@@ -1,6 +1,8 @@
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
+import { expect, describe, it } from 'vitest';
+
 import { parseDiffractogram, readBRML } from '../parseBRML';
 
 describe('parseBRML', () => {

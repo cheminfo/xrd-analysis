@@ -1,3 +1,5 @@
+import { test, expect } from 'vitest';
+
 import { generatePattern } from '../generatePattern.js';
 
 import { dummyAnalysis } from './utils.js';
