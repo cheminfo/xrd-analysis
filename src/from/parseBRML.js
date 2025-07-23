@@ -1,5 +1,5 @@
 import { XMLParser } from 'fast-xml-parser';
-import JSZip from 'jszip/dist/jszip.min.js';
+import JSZip from 'jszip';
 
 /**
  * Parse metadata from xml file that is contained in BRML
