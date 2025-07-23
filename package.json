@@ -58,7 +58,7 @@
     "spectrum-generator": "^8.0.4"
   },
   "info": {
-    "logo": "https://raw.githubusercontent.com/cheminfo/font/master/src/misc/cristal.svg",
+    "logo": "https://raw.githubusercontent.com/cheminfo/font/main/src/misc/cristal.svg",
     "domain": [
       "Physical Chemistry",
       "Materials Science"
@@ -73,12 +73,12 @@
         {
           "extension": "brml",
           "manufacturer": "Bruker",
-          "example": "https://github.com/cheminfo/xrd-analysis/blob/master/testFiles/test.brml?raw=true"
+          "example": "https://github.com/cheminfo/xrd-analysis/blob/main/testFiles/test.brml?raw=true"
         },
         {
           "extension": "xy",
           "manufacturer": "PowDLL",
-          "example": "https://raw.githubusercontent.com/cheminfo/xrd-analysis/master/testFiles/MG1-Cu2O-28_bg_subtracted.xy"
+          "example": "https://raw.githubusercontent.com/cheminfo/xrd-analysis/main/testFiles/MG1-Cu2O-28_bg_subtracted.xy"
         }
       ]
     }

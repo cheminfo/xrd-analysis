@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches:
-      - master
+      - main
 
 env:
   NODE_VERSION: 14.x
@@ -16,4 +16,3 @@ jobs:
     secrets:
       github-token: ${{ secrets.BOT_TOKEN }}
       npm-token: ${{ secrets.NPM_BOT_TOKEN }}
-
