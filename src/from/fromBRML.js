@@ -4,7 +4,7 @@ import { readBRML } from './parseBRML';
 
 /**
  * Creates a new Chromatogram element based in a JCAMP string
- * @param {UInt8Array} blob - String containing the JCAMP data
+ * @param {Uint8Array} blob - String containing the JCAMP data
  * @returns {Analysis} - New class element with the given data
  */
 export async function fromBRML(blob) {

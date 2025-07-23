@@ -1,6 +1,6 @@
 import { Analysis } from '..';
 
-import { parsePowDLLXY } from './parsePowDLLXY';
+import { parsePowDLLXY } from './parsePowDLLXY.js';
 
 /**
  * Creates a new Chromatogram element based in a JCAMP string
