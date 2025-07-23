@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.0](https://github.com/cheminfo/xrd-analysis/compare/v0.10.3...v1.0.0) (2025-07-23)
+
+
+### release-as
+
+* 1.0.0 ([9acb61a](https://github.com/cheminfo/xrd-analysis/commit/9acb61a80e2b8a0f02da43011b47ddac073dfdfc))
+
 ### [0.10.3](https://www.github.com/cheminfo/xrd-analysis/compare/v0.10.2...v0.10.3) (2021-09-07)
 
 
