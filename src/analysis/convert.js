@@ -1,4 +1,4 @@
-import { getLamba, toDegrees, toRadians } from './utils';
+import { getLamba, toDegrees, toRadians } from './utils.js';
 
 /**
  * d = Order of Reflection (n) × Wavelength (λ) / 2 × Sinθ

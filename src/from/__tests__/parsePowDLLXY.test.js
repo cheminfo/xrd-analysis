@@ -3,7 +3,7 @@ import { join } from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 
-import { parsePowDLLXY } from '../parsePowDLLXY';
+import { parsePowDLLXY } from '../parsePowDLLXY.js';
 
 describe('parseXY', () => {
   const xy = readFileSync(

@@ -3,7 +3,7 @@ import { join } from 'node:path';
 
 import { expect, test } from 'vitest';
 
-import { fromBRML, fromJcamp, toJcamp } from '..';
+import { fromBRML, fromJcamp, toJcamp } from '../index.js';
 
 test('xrdAnalysis', async () => {
   let blob = readFileSync(join(__dirname, '../../testFiles/test.brml'));

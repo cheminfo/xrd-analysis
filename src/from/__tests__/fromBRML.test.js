@@ -3,7 +3,7 @@ import { join } from 'node:path';
 
 import { expect, test } from 'vitest';
 
-import { fromBRML } from '../fromBRML';
+import { fromBRML } from '../fromBRML.js';
 
 test('fromBRML', async () => {
   let brml = readFileSync(join(__dirname, '../../../testFiles/test.brml'));

@@ -3,7 +3,7 @@ import { join } from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 
-import { parseDiffractogram, readBRML } from '../parseBRML';
+import { parseDiffractogram, readBRML } from '../parseBRML.js';
 
 describe('parseBRML', () => {
   const xml = readFileSync(

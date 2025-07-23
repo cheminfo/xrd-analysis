@@ -1,4 +1,4 @@
-import { Analysis } from '../..';
+import { Analysis } from '../../index.js';
 
 export function dummyAnalysis(noiseLevel = 0.1, baseline = 0) {
   let analysis = new Analysis();

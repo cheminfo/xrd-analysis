@@ -1,6 +1,6 @@
-import { Analysis } from '..';
+import { Analysis } from '../index.js';
 
-import { readBRML } from './parseBRML';
+import { readBRML } from './parseBRML.js';
 
 /**
  * Creates a new Chromatogram element based in a JCAMP string

@@ -9,6 +9,17 @@ export default defineConfig([
         __dirname: 'readonly',
       },
     },
-    rules: {},
+    rules: {
+      'import/extensions': [
+        'error',
+        'always',
+        {
+          js: 'always',
+          jsx: 'always',
+          ts: 'never',
+          tsx: 'never',
+        },
+      ],
+    },
   },
 ]);

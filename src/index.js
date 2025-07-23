@@ -1,6 +1,6 @@
 import { JSGraph as OriginalJSGraph } from 'common-spectrum';
 
-import { getAnnotations } from './jsgraph/getAnnotations';
+import { getAnnotations } from './jsgraph/getAnnotations.js';
 
 export {
   AnalysesManager,
@@ -11,16 +11,16 @@ export {
   toJcamp,
 } from 'common-spectrum';
 
-export { fromBRML } from './from/fromBRML';
-export { fromPowDLLXY } from './from/fromPowDLLXY';
-export { kAlpha1Angstrom } from './constants/wavelengths';
+export { fromBRML } from './from/fromBRML.js';
+export { fromPowDLLXY } from './from/fromPowDLLXY.js';
+export { kAlpha1Angstrom } from './constants/wavelengths.js';
 
 export {
   calculateInterplanarSpacing,
   calculateReflexes,
-} from './analysis/convert';
-export { scherrerForSpectrum } from './analysis/scherrerForSpectrum';
-export { computeCrystallinity } from './analysis/computeCrystallinity';
-export { generatePattern } from './analysis/generatePattern';
+} from './analysis/convert.js';
+export { scherrerForSpectrum } from './analysis/scherrerForSpectrum.js';
+export { computeCrystallinity } from './analysis/computeCrystallinity.js';
+export { generatePattern } from './analysis/generatePattern.js';
 
 export const JSGraph = { ...OriginalJSGraph, getAnnotations };

@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest';
 
-import { computeCrystallinity } from '../computeCrystallinity';
+import { computeCrystallinity } from '../computeCrystallinity.js';
 
 import { dummyAnalysis } from './utils.js';
 

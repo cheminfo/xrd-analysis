@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest';
 
-import { scherrer, scherrerForSpectrum } from '../scherrerForSpectrum';
+import { scherrer, scherrerForSpectrum } from '../scherrerForSpectrum.js';
 
 import { dummyAnalysis } from './utils.js';
 

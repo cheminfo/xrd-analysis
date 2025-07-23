@@ -1,4 +1,4 @@
-import { kAlpha1Angstrom } from '../constants/wavelengths';
+import { kAlpha1Angstrom } from '../constants/wavelengths.js';
 
 export function toRadians(angle) {
   return angle * (Math.PI / 180);

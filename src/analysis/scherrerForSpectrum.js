@@ -1,4 +1,4 @@
-import { getLamba, toRadians } from './utils';
+import { getLamba, toRadians } from './utils.js';
 /**
  * Calculate the crystallite size according to the Scherrer equation.
  * Please check the strong assumptions (e.g., grains smaller than 0.1 to 0.2 μm)

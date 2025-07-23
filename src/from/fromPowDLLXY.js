@@ -1,4 +1,4 @@
-import { Analysis } from '..';
+import { Analysis } from '../index.js';
 
 import { parsePowDLLXY } from './parsePowDLLXY.js';
 
