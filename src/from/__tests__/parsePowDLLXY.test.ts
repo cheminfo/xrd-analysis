@@ -3,11 +3,11 @@ import { join } from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 
-import { parsePowDLLXY } from '../parsePowDLLXY.js';
+import { parsePowDLLXY } from '../parsePowDLLXY.ts';
 
 describe('parseXY', () => {
   const xy = readFileSync(
-    join(__dirname, '../../../testFiles/MG1-Cu2O-28_bg_subtracted.xy'),
+    join(import.meta.dirname, 'data/MG1-Cu2O-28_bg_subtracted.xy'),
     'utf8',
   );
 

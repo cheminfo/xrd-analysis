@@ -1,7 +1,13 @@
-import { Analysis } from '../../index.js';
+import { Analysis } from '../../index.ts';
 
+/**
+ * Creates a dummy analysis with synthetic XRD data for testing.
+ * @param noiseLevel - Standard deviation of Gaussian noise to add
+ * @param baseline - Constant baseline to add to the data
+ * @returns Analysis instance with synthetic data
+ */
 export function dummyAnalysis(noiseLevel = 0.1, baseline = 0) {
-  let analysis = new Analysis();
+  const analysis = new Analysis();
   let y = [
     0, 2.81944455e-1, -1.76789118e-1, -2.61612632e-1, -2.13420693e-1,
     7.70339438e-1, 1.76926027e-1, -6.15719808e-2, -1.52426047e-2, 1.34201582e-1,
@@ -63,7 +69,7 @@ export function dummyAnalysis(noiseLevel = 0.1, baseline = 0) {
 
 /**
  * Generates a random number following a normal distribution
- * @returns {number}  random number
+ * @returns  random number
  */
 function randomGaussian() {
   return (

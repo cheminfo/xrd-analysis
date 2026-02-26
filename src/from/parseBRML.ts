@@ -1,24 +1,48 @@
 import { XMLParser } from 'fast-xml-parser';
 import JSZip from 'jszip';
 
+interface BRMLAxis {
+  id: string;
+  name: string;
+  unitBase: string;
+  unitPrefix: string;
+  reference: unknown;
+  start: unknown;
+  stop: unknown;
+  increment: unknown;
+}
+
+interface BRMLDiffractogram {
+  data: { x: number[]; y: number[] };
+  info: {
+    xUnits: string;
+    yUnits: string;
+    dataType: string;
+    origin: string;
+  };
+  meta: Record<string, unknown>;
+}
+
 /**
- * Parse metadata from xml file that is contained in BRML
- * @export
- * @param {string} file
- * @returns {object} containing data (x: 2theta, y: counts), info and metadata
+ * Parse metadata from xml file that is contained in BRML.
+ * @param file - XML string from the BRML archive
+ * @returns Object containing data (x: 2theta, y: counts), info and metadata
  */
-export function parseDiffractogram(file) {
+
+export function parseDiffractogram(file: string): BRMLDiffractogram {
   const options = {
     ignoreAttributes: false,
     attributeNamePrefix: '__',
   };
   const parser = new XMLParser(options);
 
-  let json = parser.parse(file);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const json: any = parser.parse(file);
   const data = json.RawData;
-  let axes =
+  const axes: BRMLAxis[] =
     data.DataRoutes.DataRoute.ScanInformation.ScanAxes.ScanAxisInfo.map(
-      (element) => ({
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (element: any) => ({
         id: element.__AxisId,
         name: element.__AxisName,
         unitBase: element.Unit.__Base,
@@ -30,7 +54,7 @@ export function parseDiffractogram(file) {
       }),
     );
 
-  let adddata = {
+  const adddata = {
     startTime: data.TimeStampStarted,
     endTime: data.TimeStampFinished,
     measurmentPoints:
@@ -65,8 +89,12 @@ export function parseDiffractogram(file) {
 
   diffractogram.meta = { ...adddata, ...diffractogram.meta };
 
-  let label = adddata.axes[0].name.replace(/two/i, '2').replace(/theta/i, 'ϴ');
-  let unit = adddata.axes[0].unitBase.replace(/degree/i, '°');
+  const firstAxis = axes[0];
+  if (!firstAxis) {
+    throw new Error('No axis information found in BRML file');
+  }
+  const label = firstAxis.name.replace(/two/i, '2').replace(/theta/i, 'ϴ');
+  const unit = firstAxis.unitBase.replace(/degree/i, '°');
 
   diffractogram.info.xUnits = `${label} [${unit}]`;
 
@@ -74,25 +102,27 @@ export function parseDiffractogram(file) {
 }
 
 /**
- * @param  {Array} data - array of strings of the measured points
+ * Parse measured data points into an XY diffractogram.
+ * @param data - Array of comma-separated strings of measured points
+ * @returns Diffractogram object
  */
-function getXYDiffractogram(data) {
-  let axis1 = [];
-  let axis2 = [];
-  let measuredTimePerStep = [];
-  let plannedTimePerStep = [];
-  let counts = [];
+function getXYDiffractogram(data: string[]): BRMLDiffractogram {
+  const axis1: number[] = [];
+  const axis2: number[] = [];
+  const measuredTimePerStep: number[] = [];
+  const plannedTimePerStep: number[] = [];
+  const counts: number[] = [];
 
   for (const element of data) {
-    const factors = element.split(',');
-    measuredTimePerStep.push(Number.parseFloat(factors[0]));
-    plannedTimePerStep.push(Number.parseFloat(factors[1]));
-    axis1.push(Number.parseFloat(factors[2]));
-    axis2.push(Number.parseFloat(factors[3]));
-    counts.push(Number.parseFloat(factors[4]));
+    const [measuredTime, plannedTime, a1, a2, count] = element.split(',');
+    measuredTimePerStep.push(Number.parseFloat(measuredTime as string));
+    plannedTimePerStep.push(Number.parseFloat(plannedTime as string));
+    axis1.push(Number.parseFloat(a1 as string));
+    axis2.push(Number.parseFloat(a2 as string));
+    counts.push(Number.parseFloat(count as string));
   }
 
-  const diffractogram = {
+  const diffractogram: BRMLDiffractogram = {
     data: { x: axis1, y: counts },
     info: {
       xUnits: '2ϴ [°]',
@@ -111,15 +141,20 @@ function getXYDiffractogram(data) {
 }
 
 /**
- * Read a BRML file (produced by Bruker instruments, a zip file that contains XMLs)
- * @export
- * @param {String/Array of bytes/ArrayBuffer/Uint8Array/Buffer/Blob/Promise} binary - BRML file
- * @returns {object} containing data (x: 2theta, y: counts), info and metadata
+ * Read a BRML file (produced by Bruker instruments, a zip file that contains XMLs).
+ * @param binary - BRML file as ArrayBuffer, Uint8Array, Buffer, Blob, or similar
+ * @returns Object containing data (x: 2theta, y: counts), info and metadata
  */
-export async function readBRML(binary) {
-  let zip = new JSZip();
+export async function readBRML(
+  binary: ArrayBuffer | Uint8Array | Buffer | Blob,
+): Promise<BRMLDiffractogram> {
+  const zip = new JSZip();
   const txt = await zip.loadAsync(binary).then((zipFiles) => {
-    return zipFiles.file('Experiment0/RawData0.xml').async('text');
+    const file = zipFiles.file('Experiment0/RawData0.xml');
+    if (!file) {
+      throw new Error('Experiment0/RawData0.xml not found in BRML archive');
+    }
+    return file.async('text');
   });
 
   const diffractogram = parseDiffractogram(txt);

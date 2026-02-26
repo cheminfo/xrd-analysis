@@ -1,9 +1,9 @@
 import { expect, test } from 'vitest';
 
-import { calculateInterplanarSpacing, calculateReflexes } from '../convert.js';
+import { calculateInterplanarSpacing, calculateReflexes } from '../convert.ts';
 
 test('interplanar spacing', () => {
-  let result = calculateInterplanarSpacing([5, 5]);
+  const result = calculateInterplanarSpacing([5, 5]);
 
   expect(result).toHaveLength(2);
   expect(result[0]).toBeCloseTo(8.845315015351806, 2);
@@ -11,7 +11,7 @@ test('interplanar spacing', () => {
 });
 
 test('reflexes', () => {
-  let result = calculateReflexes([8.845315015351806, 1.54184]);
+  const result = calculateReflexes([8.845315015351806, 1.54184]);
 
   expect(result).toHaveLength(2);
   expect(result[0]).toBeCloseTo(5, 2);

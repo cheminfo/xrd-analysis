@@ -3,16 +3,16 @@ import { join } from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 
-import { parseDiffractogram, readBRML } from '../parseBRML.js';
+import { parseDiffractogram, readBRML } from '../parseBRML.ts';
 
 describe('parseBRML', () => {
   const xml = readFileSync(
-    join(__dirname, '../../../testFiles/RawData0.xml'),
+    join(import.meta.dirname, 'data/RawData0.xml'),
     'utf8',
   );
 
   it('check the dictionary', () => {
-    let result = parseDiffractogram(xml);
+    const result = parseDiffractogram(xml);
 
     expect(result).toHaveProperty('data');
     expect(result.data).toHaveProperty('x');
@@ -38,10 +38,10 @@ describe('parseBRML', () => {
 });
 
 describe('readBRML', () => {
-  const data = readFileSync(join(__dirname, '../../../testFiles/test.brml'));
+  const data = readFileSync(join(import.meta.dirname, 'data/test.brml'));
 
   it('check the output dictionary', async () => {
-    let result = await readBRML(data);
+    const result = await readBRML(data);
 
     expect(result).toHaveProperty('data');
     expect(result.data).toHaveProperty('x');

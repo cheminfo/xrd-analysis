@@ -3,19 +3,21 @@ import { join } from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 
-import { fromPowDLLXY } from '../fromPowDLLXY.js';
+import { fromPowDLLXY } from '../fromPowDLLXY.ts';
 
 describe('fromXY', () => {
   const xy = readFileSync(
-    join(__dirname, '../../../testFiles/MG1-Cu2O-28_bg_subtracted.xy'),
+    join(import.meta.dirname, 'data/MG1-Cu2O-28_bg_subtracted.xy'),
     'utf8',
   );
 
   it('check the dictionary', () => {
     const analysis = fromPowDLLXY(xy);
-    let diffractogram = analysis.getXYSpectrum();
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const diffractogram = analysis.getXYSpectrum()!;
 
-    expect(diffractogram.meta.userName).toBe('Lab Manager');
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    expect(diffractogram.meta!.userName).toBe('Lab Manager');
     expect(diffractogram.variables.x.data[0]).toBe(10);
     expect(diffractogram.variables.y.data[1]).toBe(-0.0755227112146954);
     expect(diffractogram.variables.x.data[3448]).toBe(70.0050142705441);

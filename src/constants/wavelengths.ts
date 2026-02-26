@@ -1,6 +1,6 @@
 // source: http://gisaxs.com/index.php/X-ray_energy
 
-export const kAlpha1Angstrom = {
+export const kAlpha1Angstrom: Record<string, number> = {
   CuKa: 1.54184,
   CuKa2: 1.54439,
   CuKa1: 1.54056,

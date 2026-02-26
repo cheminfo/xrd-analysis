@@ -1,12 +1,13 @@
 import { expect, test } from 'vitest';
 
-import { generatePattern } from '../generatePattern.js';
+import { generatePattern } from '../generatePattern.ts';
 
-import { dummyAnalysis } from './utils.js';
+import { dummyAnalysis } from './utils.ts';
 
 test('generate pattern', () => {
-  let analysis = dummyAnalysis();
-  let spectrum = analysis.getXYSpectrum();
+  const analysis = dummyAnalysis();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const spectrum: any = analysis.getXYSpectrum();
   spectrum.peaks = [
     { x: 1, y: 100 },
     { x: 10, y: 10 },
