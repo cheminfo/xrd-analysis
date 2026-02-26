@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/cheminfo/xrd-analysis/compare/v1.0.0...v2.0.0) (2026-02-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrate to typescript and type:module
+
+### Code Refactoring
+
+* migrate to typescript and type:module ([ccab940](https://github.com/cheminfo/xrd-analysis/commit/ccab9401e0e5da09e25111c159aeeb874e337113))
+
 ## [1.0.0](https://github.com/cheminfo/xrd-analysis/compare/v0.10.3...v1.0.0) (2025-07-23)
 
 ### release-as
