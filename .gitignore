@@ -48,3 +48,5 @@ dist
 docs
 
 *.tsbuildinfo
+.claude
+.deploy

@@ -5,15 +5,25 @@ interface AnnotationPeak {
 }
 
 interface AnnotationOptions {
-  /** Fill color for annotations. Defaults to 'green'. */
+  /**
+   * Fill color for annotations. Defaults to 'green'.
+   */
   fillColor?: string;
-  /** Stroke color for annotations. Defaults to 'red'. */
+  /**
+   * Stroke color for annotations. Defaults to 'red'.
+   */
   strokeColor?: string;
-  /** Custom creation function applied to each annotation. */
+  /**
+   * Custom creation function applied to each annotation.
+   */
   creationFct?: (annotation: Annotation, peak: AnnotationPeak) => void;
-  /** Whether to show peak assignments. Defaults to true. */
+  /**
+   * Whether to show peak assignments. Defaults to true.
+   */
   showAssignment?: boolean;
-  /** Angle for assignment labels. Defaults to -45. */
+  /**
+   * Angle for assignment labels. Defaults to -45.
+   */
   assignmentAngle?: number;
 }
 
@@ -77,9 +87,8 @@ function createAnnotation(
 ): void {
   const { showAssignment = true, assignmentAngle = -45 } = options;
   const labels: NonNullable<Annotation['labels']> = [];
-  let line = 0;
-
   if (showAssignment) {
+    let line = 0;
     labels.push({
       text: peak.assignment,
       size: '18px',

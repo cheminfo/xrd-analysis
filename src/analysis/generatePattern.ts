@@ -13,11 +13,17 @@ interface Spectrum {
 }
 
 interface GeneratePatternOptions {
-  /** Start of the pattern range. Defaults to minimum x value. */
+  /**
+   * Start of the pattern range. Defaults to minimum x value.
+   */
   from?: number;
-  /** End of the pattern range. Defaults to maximum x value. */
+  /**
+   * End of the pattern range. Defaults to maximum x value.
+   */
   to?: number;
-  /** Number of points in the generated pattern. Defaults to 999. */
+  /**
+   * Number of points in the generated pattern. Defaults to 999.
+   */
   nbPoints?: number;
 }
 

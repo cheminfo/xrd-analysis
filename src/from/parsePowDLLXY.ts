@@ -34,9 +34,9 @@ export function parsePowDLLXY(text: string): PowDLLDiffractogram {
     y: [],
   };
   for (const line of dataLines) {
-    const [xValue, yValue] = line.split(/\s+/);
-    data.x.push(Number.parseFloat((xValue as string).trim()));
-    data.y.push(Number.parseFloat((yValue as string).trim()));
+    const [xValue, yValue] = line.split(/\s+/, 2);
+    data.x.push(Number((xValue as string).trim()));
+    data.y.push(Number((yValue as string).trim()));
   }
   const headerLines = header.split('" ');
 
@@ -47,7 +47,7 @@ export function parsePowDLLXY(text: string): PowDLLDiffractogram {
     userName: trimReplace(headerLines[2] as string),
     anode: trimReplace(headerLines[3] as string),
     scanType: trimReplace(headerLines[4] as string),
-    timePerStep: Number.parseInt(trimReplace(headerLines[5] as string), 10),
+    timePerStep: Math.trunc(Number(trimReplace(headerLines[5] as string))),
   };
 
   const diffractogram: PowDLLDiffractogram = {

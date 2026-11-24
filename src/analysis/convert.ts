@@ -5,9 +5,13 @@ import { getLamba, toDegrees, toRadians } from './utils.ts';
  */
 
 export interface SpacingOptions {
-  /** Order of reflection n. Defaults to 1. */
+  /**
+   * Order of reflection n. Defaults to 1.
+   */
   orderOfReflection?: number;
-  /** Anode type. Defaults to "CuKa". */
+  /**
+   * Anode type. Defaults to "CuKa".
+   */
   anode?: string;
 }
 

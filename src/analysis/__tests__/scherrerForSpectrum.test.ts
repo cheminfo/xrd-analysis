@@ -34,7 +34,7 @@ test('no peaks', () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const spectrumNoPeaks: any = analysis.getXYSpectrum();
 
-  expect(() => scherrerForSpectrum(spectrumNoPeaks)).toThrowError(
+  expect(() => scherrerForSpectrum(spectrumNoPeaks)).toThrow(
     'There must be peaks to calculate the scherrer broadening',
   );
 });
@@ -46,7 +46,7 @@ test('no anode', () => {
   spectrum.peaks = [{ x: 23.3, y: 10, width: 0.3 }];
   delete spectrum.meta.anode;
 
-  expect(() => scherrerForSpectrum(spectrum)).toThrowError(
+  expect(() => scherrerForSpectrum(spectrum)).toThrow(
     'The anode metal must be available in the metadata of the spectrum',
   );
 });

@@ -17,7 +17,9 @@ interface XRDSpectrum {
 }
 
 interface CrystallinityOptions {
-  /** Peak shape kind. Defaults to gaussian. */
+  /**
+   * Peak shape kind. Defaults to gaussian.
+   */
   shape?: { kind: Shape1D['kind'] };
 }
 
@@ -42,7 +44,7 @@ export function computeCrystallinity(
     const shapeInstance = getShape1D({
       kind: shape.kind,
       fwhm: peak.width,
-    } as Shape1D);
+    });
     peakArea += shapeInstance.getArea(peak.y);
   }
 

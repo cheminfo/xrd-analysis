@@ -1,5 +1,10 @@
+import {
+  BlobReader,
+  TextWriter,
+  Uint8ArrayReader,
+  ZipReader,
+} from '@zip.js/zip.js';
 import { XMLParser } from 'fast-xml-parser';
-import JSZip from 'jszip';
 
 interface BRMLAxis {
   id: string;
@@ -114,12 +119,12 @@ function getXYDiffractogram(data: string[]): BRMLDiffractogram {
   const counts: number[] = [];
 
   for (const element of data) {
-    const [measuredTime, plannedTime, a1, a2, count] = element.split(',');
-    measuredTimePerStep.push(Number.parseFloat(measuredTime as string));
-    plannedTimePerStep.push(Number.parseFloat(plannedTime as string));
-    axis1.push(Number.parseFloat(a1 as string));
-    axis2.push(Number.parseFloat(a2 as string));
-    counts.push(Number.parseFloat(count as string));
+    const [measuredTime, plannedTime, a1, a2, count] = element.split(',', 5);
+    measuredTimePerStep.push(Number(measuredTime));
+    plannedTimePerStep.push(Number(plannedTime));
+    axis1.push(Number(a1));
+    axis2.push(Number(a2));
+    counts.push(Number(count));
   }
 
   const diffractogram: BRMLDiffractogram = {
@@ -148,14 +153,23 @@ function getXYDiffractogram(data: string[]): BRMLDiffractogram {
 export async function readBRML(
   binary: ArrayBuffer | Uint8Array | Buffer | Blob,
 ): Promise<BRMLDiffractogram> {
-  const zip = new JSZip();
-  const txt = await zip.loadAsync(binary).then((zipFiles) => {
-    const file = zipFiles.file('Experiment0/RawData0.xml');
-    if (!file) {
-      throw new Error('Experiment0/RawData0.xml not found in BRML archive');
-    }
-    return file.async('text');
-  });
+  const reader = new ZipReader(
+    binary instanceof Blob
+      ? new BlobReader(binary)
+      : new Uint8ArrayReader(
+          binary instanceof Uint8Array ? binary : new Uint8Array(binary),
+        ),
+  );
+  const entries = await reader.getEntries();
+  const entry = entries.find(
+    (candidate) => candidate.filename === 'Experiment0/RawData0.xml',
+  );
+  if (!entry || entry.directory) {
+    await reader.close();
+    throw new Error('Experiment0/RawData0.xml not found in BRML archive');
+  }
+  const txt = await entry.getData(new TextWriter());
+  await reader.close();
 
   const diffractogram = parseDiffractogram(txt);
 
