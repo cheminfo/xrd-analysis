@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.0.0](https://github.com/cheminfo/xrd-analysis/compare/v1.0.0...v2.0.0) (2026-11-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrate to typescript and type:module
+
+### Features
+
+* calculate the powder pattern of a crystal structure ([d41e501](https://github.com/cheminfo/xrd-analysis/commit/d41e5017743b425292b0cde7738ab8c9acf36810))
+
+
+### Code Refactoring
+
+* migrate to typescript and type:module ([ccab940](https://github.com/cheminfo/xrd-analysis/commit/ccab9401e0e5da09e25111c159aeeb874e337113))
+
 ## [1.0.0](https://github.com/cheminfo/xrd-analysis/compare/v0.10.3...v1.0.0) (2025-07-23)
 
 ### release-as
