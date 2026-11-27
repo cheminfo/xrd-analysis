@@ -1,6 +1,6 @@
 {
   "name": "xrd-analysis",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "xrd-analysis can convert output files from powder-xray diffraction into JCAMP-DX format and perform analysis (Scherrer equation, ...) on the diffractograms",
   "type": "module",
   "exports": {

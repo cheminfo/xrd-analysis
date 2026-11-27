@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/cheminfo/xrd-analysis/compare/v2.0.0...v2.0.1) (2026-11-27)
+
+
+### Bug Fixes
+
+* type the wavelength table with its line names ([9a60c0a](https://github.com/cheminfo/xrd-analysis/commit/9a60c0aa98f5aca03a9df0738c8f00c883a8faf6))
+
 ## [2.0.0](https://github.com/cheminfo/xrd-analysis/compare/v1.0.0...v2.0.0) (2026-11-24)
 
 
