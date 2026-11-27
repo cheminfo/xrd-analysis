@@ -13,7 +13,8 @@ export {
 
 export { fromBRML } from './from/fromBRML.ts';
 export { fromPowDLLXY } from './from/fromPowDLLXY.ts';
-export { kAlpha1Angstrom } from './constants/wavelengths.ts';
+export { isXrayLine, kAlpha1Angstrom } from './constants/wavelengths.ts';
+export type { XrayLine } from './constants/wavelengths.ts';
 
 export {
   calculateInterplanarSpacing,

@@ -1,3 +1,5 @@
+import { kAlpha1Angstrom } from '../constants/wavelengths.ts';
+
 import { cellAtoms } from './cellAtoms.ts';
 import { uniqueReflections } from './reflections.ts';
 import { coefficientsOf, scatteringElement } from './scatteringFactor.ts';
@@ -59,7 +61,7 @@ export function calculatePowderPattern(
   options: PowderPatternOptions = {},
 ): PowderPattern {
   const {
-    wavelength = 1.54056,
+    wavelength = kAlpha1Angstrom.CuKa1,
     twoThetaRange = [0, 90],
     defaultUiso = 0.02,
     minIntensity = 0.001,

@@ -1,4 +1,4 @@
-import { kAlpha1Angstrom } from '../constants/wavelengths.ts';
+import { isXrayLine, kAlpha1Angstrom } from '../constants/wavelengths.ts';
 
 /**
  * Convert an angle from degrees to radians.
@@ -24,12 +24,10 @@ export function toDegrees(radians: number): number {
  * @returns Wavelength in Angstrom
  */
 export function getLamba(anode: string): number {
-  const wavelength = kAlpha1Angstrom[anode];
-  if (wavelength === undefined) {
+  if (!isXrayLine(anode)) {
     throw new Error(
       'The wavelength for the anode metal in the metadata is not defined',
     );
   }
-
-  return wavelength;
+  return kAlpha1Angstrom[anode];
 }

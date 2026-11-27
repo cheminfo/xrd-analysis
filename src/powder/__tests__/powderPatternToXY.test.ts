@@ -12,7 +12,7 @@ const halite = calculatePowderPattern(readFixture('halite'), {
 const line111 = item(halite.peaks, 0);
 const line200 = item(halite.peaks, 1);
 const line220 = item(halite.peaks, 2);
-const copperKa2 = kAlpha1Angstrom.CuKa2 ?? NaN;
+const copperKa2 = kAlpha1Angstrom.CuKa2;
 
 function valueAt(x: Float64Array, y: Float64Array, twoTheta: number): number {
   let best = 0;

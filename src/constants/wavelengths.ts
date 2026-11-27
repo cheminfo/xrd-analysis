@@ -1,6 +1,10 @@
 // source: https://gisaxs.com/index.php/X-ray_energy
 
-export const kAlpha1Angstrom: Record<string, number> = {
+/**
+ * The Kα1, Kα2, weighted Kα and Kβ1 lines of the usual anodes, in Å, by name:
+ * `CuKa1`, `MoKa`, `CoKb1`…
+ */
+export const kAlpha1Angstrom = {
   CuKa: 1.54184,
   CuKa2: 1.54439,
   CuKa1: 1.54056,
@@ -25,4 +29,18 @@ export const kAlpha1Angstrom: Record<string, number> = {
   AgKa2: 0.563813,
   AgKa1: 0.559421,
   AgKb1: 0.497082,
-};
+} satisfies Record<string, number>;
+
+/**
+ * The name of a line of {@link kAlpha1Angstrom}, e.g. `CuKa1`.
+ */
+export type XrayLine = keyof typeof kAlpha1Angstrom;
+
+/**
+ * Whether a name is one of the lines of {@link kAlpha1Angstrom}.
+ * @param name - A name read from a file, e.g. `CuKa`.
+ * @returns True when the table holds it.
+ */
+export function isXrayLine(name: string): name is XrayLine {
+  return Object.hasOwn(kAlpha1Angstrom, name);
+}
